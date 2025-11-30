@@ -1,0 +1,507 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #5a5f5b 0%, #2b193d 100%);
+    min-height: 100vh;
+}
+
+/* Header and Navigation */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(128, 21, 216, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #667eea;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: left 0.3s ease;
+    z-index: -1;
+    border-radius: 25px;
+}
+
+nav ul li a:hover::before {
+    left: 0;
+}
+
+nav ul li a:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Main Container */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/* Personal Info Section */
+.personal-info {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(3, 8, 51, 0.95), rgba(228, 180, 180, 0.9));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.photo-container {
+    flex: 0;
+    text-align: center;
+    position: relative;
+}
+
+.photo-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -1px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    z-index: -1;
+    
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+.photo-container img {
+    width: 180px;
+    height: 180px;
+    border: 5px solid white;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 60%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.photo-container img:hover {
+    transform: scale(1.05);
+}
+
+.photo-container p {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #32a110;
+    font-size: 0.9rem;
+}
+
+.info-text h1 {
+    margin-bottom: 1rem;
+    color: #0797bb;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.info-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.info-tabs span {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.info-tabs span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.info-tabs a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Schools Section */
+.schools-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.schools-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(219, 45, 45);
+    text-shadow: 2px 2px 10px rgba(170, 123, 123, 0.3);
+    position: relative;
+}
+
+.schools-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.schools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background: #181ac01a;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.school-card {
+    background: linear-gradient(135deg, rgba(224, 240, 226, 0.95), rgba(88, 69, 69, 0.85));
+    padding: 2rem;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.school-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.school-card:hover::before {
+    opacity: 0.1;
+}
+
+.school-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+    border-color: #667eea;
+}
+
+.school-card .year {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.school-card .name {
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Work Experience Section */
+.work-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.work-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.work-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.work-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(209, 181, 181, 0.9));
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    min-height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.work-item {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.work-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    transition: width 0.3s ease;
+}
+
+.work-item:hover::before {
+    width: 100%;
+    opacity: 0.1;
+}
+
+.work-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.work-item:last-child {
+    margin-bottom: 0;
+}
+
+.work-item h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.work-item .period {
+    color: #3205ad;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.work-item p {
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Hobbies Section */
+.hobbies-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.hobbies-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.hobbies-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #0c0b0c);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.hobbies-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.hobbies-container ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.hobbies-container li {
+    background: linear-gradient(135deg, #375c3c 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.hobbies-container li:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .personal-info {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .schools-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .info-tabs {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .info-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .schools-section h2,
+    .work-section h2,
+    .hobbies-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .schools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .school-card {
+        padding: 1.5rem;
+    }
+
+    .work-container {
+        padding: 1.5rem;
+    }
+
+    .work-item {
+        padding: 1.5rem;
+    }
+
+    .hobbies-container {
+        padding: 2rem;
+    }
+}
